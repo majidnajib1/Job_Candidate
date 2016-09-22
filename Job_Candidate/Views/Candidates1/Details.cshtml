@@ -1,0 +1,237 @@
+﻿@model Job_Candidate.Candidate
+
+
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div>
+    <div class="panel panel-border-wide">
+        <h4>Candidate Details</h4>
+        <hr />
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.FirstName)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.FirstName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Surname)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.Surname)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.DateOfBirth)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.DateOfBirth)
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Address_Line1)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.Address_Line1)
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Town)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.Town)
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.City)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.City)
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.PostCode)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.PostCode)
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Mobile)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.Mobile)
+                    </td>
+
+
+                </tr>
+
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(model => model.Email)
+                    </td>
+
+                </tr>
+
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="panel panel-border-wide">
+        <table>
+            <tr>
+                <th scope="col">
+                    @Html.DisplayNameFor(model => model.PersonalSatement)
+
+                </th>
+
+
+            </tr>
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(model => model.PersonalSatement)
+                </td>
+            </tr>
+        </table>
+
+
+    </div>
+    <div class="panel panel-border-wide">
+
+        <table>
+
+            <tr>
+
+                <th scope="col">
+                    Work Experience
+                </th>
+            </tr>
+            <tr>
+
+                <th scope="col">
+                    JobTitle
+                </th>
+                <th scope="col">
+                    Date Started
+                </th>
+                <th scope="col">
+                    Date Ended
+                </th>
+                <th scope="col">
+                    Job Summary
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.WorkExpereinces)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date_Started)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date_Ended)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Job_Summary)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <div class="panel panel-border-wide">
+
+        <table class="table">
+            <tr>
+                <th scope="col">
+                    Qualifications
+
+                </th>
+
+            </tr>
+
+            <tr>
+                <th scope="col">
+                    Title
+                </th>
+                <th scope="col">
+                    Date
+                </th>
+                <th scope="col">
+                    Grade
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Qualifications)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Grade)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+
+    <p>
+
+        @Html.ActionLink("Back to List", "Index", "Applications", null, new { @class = "link-back" })
+
+    </p>
+</div>

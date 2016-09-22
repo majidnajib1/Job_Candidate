@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Job_Candidate.Models.Application>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1 class="heading-medium">Job Application List</h1>
+
+<div class="grid-row">
+    <div class="column-full">
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Candidate.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Candidate.Surname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Job.Job_Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DateApplied)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Candidate.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Candidate.Surname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Job.Job_Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateApplied)
+                    </td>
+                    <td>
+
+                        
+                       
+                            @Html.ActionLink("Candidate Details", "Details", "Candidates1", new { id = item.CandidateID }, new { @rel = "external" })
+                        
+</td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
